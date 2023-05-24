@@ -2,15 +2,20 @@ package project.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import project.entities.CourseEntity;
 
-import java.util.Optional;
+import java.util.List;
+
 
 @Repository
 public interface CourseRepository extends JpaRepository<CourseEntity, Integer> {
-    final String QUERY = "SELECT * FROM Course WHERE title LIKE %? OR title LIKE %?% OR title LIKE ?%";
+    String QUERY = "SELECT * FROM course" +
+            " WHERE title LIKE CONCAT('%',:name)" +
+            " OR title LIKE CONCAT('%',:name,'%')" +
+            " OR title LIKE CONCAT(:name,'%');";
 
     @Query(value = QUERY, nativeQuery = true)
-    CourseEntity findByName(String name);
+    List<CourseEntity> findByName(@Param("name") String name);
 }

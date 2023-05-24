@@ -3,7 +3,6 @@ package project.controller;
 ;
 
 
-import jakarta.persistence.Column;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,10 +32,10 @@ public class CoursesController {
         return new ResponseEntity<>(service.getCourse(id), HttpStatus.OK).getBody();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     @CrossOrigin
-    public CourseEntity getCourseByName(@PathVariable String name) {
-        return new ResponseEntity<>(service.getCourse(name), HttpStatus.OK).getBody();
+    public List<CourseEntity> getCourseByName(@PathVariable String name) {
+        return new ResponseEntity<>(service.getCourses(name), HttpStatus.OK).getBody();
     }
 
     @PostMapping

@@ -27,9 +27,10 @@ public class CourseService {
         }
     }
 
-    public CourseEntity getCourse(String name) {
+    public List<CourseEntity> getCourses(String name) {
         if (this.repository.findByName(name) != null) {
             return this.repository.findByName(name);
+            //todo
         } else {
             throw new CourseNotFoundException("No course with given id found!");
         }

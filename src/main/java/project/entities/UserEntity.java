@@ -1,6 +1,5 @@
 package project.entities;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
