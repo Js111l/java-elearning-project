@@ -6,9 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-@Entity(name = "Course")
+@Entity
+@Table(name = "Course")
 @Setter
 @Getter
 @NoArgsConstructor
@@ -24,5 +27,12 @@ public class CourseEntity {
     @OneToMany(mappedBy = "course", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JsonManagedReference
     private List<LessonEntity> lessons;
+    @ManyToMany
+    @JoinTable(name = "enrolled_courses")
+    private Set<UserEntity> enrolledCourseUsers;
+
+    @ManyToMany
+    @JoinTable(name = "fav_courses")
+    private Set<UserEntity> favCourseUsers;
 
 }
