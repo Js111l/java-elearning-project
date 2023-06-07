@@ -1,16 +1,28 @@
+#spring:
+#  profiles:
+#    active:
+#      - test
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#
+#  datasource:
+#    url: jdbc:h2:mem:mydb
+#    username: sa
+#    password: password
+---
 spring:
+  profiles:
+    active:
+
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: create-drop
 
-  datasource:
-      url: jdbc:h2:mem:mydb
-      username: sa
-      password: password
-      driver-class-name: org.h2.Driver
-#  datasource:
-#    url: jdbc:mysql://localhost:36397/mysql
-#    username: root
-#    password: qwerty
 
+  datasource:
+    url: jdbc:mysql://localhost:34111/mysql
+    username: root
+    password: qwerty
 
