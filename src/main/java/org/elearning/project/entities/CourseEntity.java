@@ -1,8 +1,6 @@
 package org.elearning.project.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,26 +12,28 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class,
+    property = "id",
+    scope = CourseEntity.class)
 public class CourseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String title;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
-    @Column(columnDefinition = "TEXT")
-    private String shortDescription;
-    private String level;
+  private String title;
 
-    @OneToMany(mappedBy = "course", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    @JsonManagedReference
-    private List<LessonEntity> lessons;
+  @Column(columnDefinition = "TEXT")
+  private String shortDescription;
 
-    @ManyToMany(mappedBy = "enrolledCourses")
-    @JsonBackReference
-    private Set<UserEntity> enrolledCourseUsers;
+  private String level;
 
-    @ManyToMany(mappedBy = "favCourses")
-    @JsonBackReference
-    private Set<UserEntity> favCourseUsers;
+  @OneToMany(mappedBy = "course")
+  private List<LessonEntity> lessons;
 
+  @ManyToMany(mappedBy = "enrolledCourses")
+  private Set<UserEntity> enrolledCourseUsers;
+
+  @ManyToMany(mappedBy = "favCourses")
+  private Set<UserEntity> favCourseUsers;
 }

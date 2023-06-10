@@ -1,9 +1,7 @@
 package org.elearning.project.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.List;
@@ -14,19 +12,21 @@ import java.util.Objects;
 @Setter
 @Getter
 @NoArgsConstructor
+@JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class,
+    property = "id",
+    scope = LessonEntity.class)
 public class LessonEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String title;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
-    @OneToMany(mappedBy = "lesson", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    @JsonManagedReference
-    private List<TextArticleEntity> articles;
+  private String title;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    @JsonBackReference
-    private CourseEntity course;
+  @OneToMany(mappedBy = "lesson", cascade = CascadeType.PERSIST)
+  private List<TextArticleEntity> articles;
 
+  @ManyToOne
+  @JoinColumn(name = "course_id")
+  private CourseEntity course;
 }

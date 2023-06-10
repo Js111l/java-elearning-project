@@ -1,94 +1,103 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - UserControllerTest</title>
-<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
-<link href="../css/style.css" rel="stylesheet" type="text/css"/>
-<script src="../js/report.js" type="text/javascript"></script>
-</head>
-<body>
-<div id="content">
-<h1>UserControllerTest</h1>
-<div class="breadcrumbs">
-<a href="../index.html">all</a> &gt; 
-<a href="../packages/org.elearning.project.controller.html">org.elearning.project.controller</a> &gt; UserControllerTest</div>
-<div id="summary">
-<table>
-<tr>
-<td>
-<div class="summaryGroup">
-<table>
-<tr>
-<td>
-<div class="infoBox" id="tests">
-<div class="counter">1</div>
-<p>tests</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="failures">
-<div class="counter">0</div>
-<p>failures</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="ignored">
-<div class="counter">0</div>
-<p>ignored</p>
-</div>
-</td>
-<td>
-<div class="infoBox" id="duration">
-<div class="counter">1.099s</div>
-<p>duration</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</td>
-<td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
-<p>successful</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div id="tabs">
-<ul class="tabLinks">
-<li>
-<a href="#tab0">Tests</a>
-</li>
-<li>
-<a href="#tab1">Standard output</a>
-</li>
-</ul>
-<div id="tab0" class="tab">
-<h2>Tests</h2>
-<table>
-<thead>
-<tr>
-<th>Test</th>
-<th>Duration</th>
-<th>Result</th>
-</tr>
-</thead>
-<tr>
-<td class="success">saveToFavorite_validCourseItem_properlySavedCourse()</td>
-<td class="success">1.099s</td>
-<td class="success">passed</td>
-</tr>
-</table>
-</div>
-<div id="tab1" class="tab">
-<h2>Standard output</h2>
-<span class="code">
-<pre>17:05:05.058 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.elearning.project.controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:05:05.195 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.elearning.project.Main for test class org.elearning.project.controller.UserControllerTest
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.elearning.project.controller.CoursesControllerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-06-10T06:54:25" hostname="LAPTOP" time="0.954">
+  <properties/>
+  <testcase name="getLessonsByCourseId_properId_properListOfLessons()" classname="org.elearning.project.controller.CoursesControllerTest" time="0.954">
+    <failure message="java.lang.AssertionError: JSON path &quot;$&quot;&#13;&#10;Expected: a collection with size &lt;2&gt;&#13;&#10;     but: was LinkedHashMap &lt;{timestamp=2023-06-10T06:54:25.936+00:00, status=500, error=Internal Server Error, path=/courses/1/lessons}&gt;" type="java.lang.AssertionError">java.lang.AssertionError: JSON path &quot;$&quot;
+Expected: a collection with size &lt;2&gt;
+     but: was LinkedHashMap &lt;{timestamp=2023-06-10T06:54:25.936+00:00, status=500, error=Internal Server Error, path=/courses/1/lessons}&gt;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:74)
+	at org.springframework.test.web.reactive.server.JsonPathAssertions.value(JsonPathAssertions.java:145)
+	at org.elearning.project.controller.CoursesControllerTest.getLessonsByCourseId_properId_properListOfLessons(CoursesControllerTest.java:66)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <system-out><![CDATA[08:54:16.740 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.elearning.project.controller.CoursesControllerTest]: CoursesControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:54:16.882 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.elearning.project.Main for test class org.elearning.project.controller.CoursesControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -98,30 +107,30 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.0)
 
-2023-06-07T17:05:05.673+02:00  INFO 6596 --- [    Test worker] o.e.p.controller.UserControllerTest      : Starting UserControllerTest using Java 17.0.6 with PID 6596 (started by kubas in C:\Users\kubas\Desktop\java-elearning-project)
-2023-06-07T17:05:05.674+02:00  INFO 6596 --- [    Test worker] o.e.p.controller.UserControllerTest      : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-06-07T17:05:06.435+02:00  INFO 6596 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-06-07T17:05:06.619+02:00  INFO 6596 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 169 ms. Found 3 JPA repository interfaces.
-2023-06-07T17:05:07.349+02:00  INFO 6596 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2023-06-07T17:05:07.359+02:00  INFO 6596 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-06-07T17:05:07.360+02:00  INFO 6596 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
-2023-06-07T17:05:07.478+02:00  INFO 6596 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-06-07T17:05:07.481+02:00  INFO 6596 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1784 ms
-2023-06-07T17:05:07.663+02:00  INFO 6596 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-06-07T17:05:07.731+02:00  INFO 6596 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
-2023-06-07T17:05:07.735+02:00  INFO 6596 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-06-07T17:05:07.924+02:00  INFO 6596 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-06-07T17:05:08.106+02:00  INFO 6596 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-06-07T17:05:08.130+02:00  INFO 6596 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-06-07T17:05:08.441+02:00  INFO 6596 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6de5ad56
-2023-06-07T17:05:08.445+02:00  INFO 6596 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-06-07T17:05:08.516+02:00  INFO 6596 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.33
-2023-06-07T17:05:08.906+02:00  INFO 6596 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-06-07T17:05:09.644+02:00  INFO 6596 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-10T08:54:17.401+02:00  INFO 20352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 20352 (started by kubas in C:\Users\kubas\Desktop\java-elearning-project)
+2023-06-10T08:54:17.402+02:00  INFO 20352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2023-06-10T08:54:18.164+02:00  INFO 20352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-10T08:54:18.353+02:00  INFO 20352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 170 ms. Found 3 JPA repository interfaces.
+2023-06-10T08:54:19.081+02:00  INFO 20352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-06-10T08:54:19.097+02:00  INFO 20352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-10T08:54:19.098+02:00  INFO 20352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-10T08:54:19.219+02:00  INFO 20352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-10T08:54:19.222+02:00  INFO 20352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1795 ms
+2023-06-10T08:54:19.417+02:00  INFO 20352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-10T08:54:19.495+02:00  INFO 20352 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-06-10T08:54:19.499+02:00  INFO 20352 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-06-10T08:54:19.699+02:00  INFO 20352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-06-10T08:54:19.879+02:00  INFO 20352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-06-10T08:54:19.896+02:00  INFO 20352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-10T08:54:20.183+02:00  INFO 20352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3278d065
+2023-06-10T08:54:20.185+02:00  INFO 20352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-10T08:54:20.252+02:00  INFO 20352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.MySQLDialect, version: 8.0.33
+2023-06-10T08:54:20.586+02:00  INFO 20352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-06-10T08:54:21.309+02:00  INFO 20352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 Hibernate: alter table enrolled_courses drop foreign key FK2wa9bifag39f6osyfrrbwujah
-2023-06-07T17:05:09.671+02:00  WARN 6596 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL &quot;alter table enrolled_courses drop foreign key FK2wa9bifag39f6osyfrrbwujah&quot; via JDBC [Table 'mysql.enrolled_courses' doesn't exist]
+2023-06-10T08:54:21.347+02:00  WARN 20352 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table enrolled_courses drop foreign key FK2wa9bifag39f6osyfrrbwujah" via JDBC [Table 'mysql.enrolled_courses' doesn't exist]
 
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &quot;alter table enrolled_courses drop foreign key FK2wa9bifag39f6osyfrrbwujah&quot; via JDBC [Table 'mysql.enrolled_courses' doesn't exist]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table enrolled_courses drop foreign key FK2wa9bifag39f6osyfrrbwujah" via JDBC [Table 'mysql.enrolled_courses' doesn't exist]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:219) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
@@ -137,7 +146,7 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &q
 	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
-	at org.hibernate.internal.SessionFactoryImpl.&lt;init&gt;(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.0.9.jar:6.0.9]
@@ -260,9 +269,9 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'mysql.enrolled_courses' does
 	... 126 common frames omitted
 
 Hibernate: alter table enrolled_courses drop foreign key FK7aq2ld9nlu21qe3rbpxrk7yeq
-2023-06-07T17:05:09.685+02:00  WARN 6596 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL &quot;alter table enrolled_courses drop foreign key FK7aq2ld9nlu21qe3rbpxrk7yeq&quot; via JDBC [Table 'mysql.enrolled_courses' doesn't exist]
+2023-06-10T08:54:21.358+02:00  WARN 20352 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table enrolled_courses drop foreign key FK7aq2ld9nlu21qe3rbpxrk7yeq" via JDBC [Table 'mysql.enrolled_courses' doesn't exist]
 
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &quot;alter table enrolled_courses drop foreign key FK7aq2ld9nlu21qe3rbpxrk7yeq&quot; via JDBC [Table 'mysql.enrolled_courses' doesn't exist]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table enrolled_courses drop foreign key FK7aq2ld9nlu21qe3rbpxrk7yeq" via JDBC [Table 'mysql.enrolled_courses' doesn't exist]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:219) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
@@ -278,7 +287,7 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &q
 	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
-	at org.hibernate.internal.SessionFactoryImpl.&lt;init&gt;(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.0.9.jar:6.0.9]
@@ -401,9 +410,9 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'mysql.enrolled_courses' does
 	... 126 common frames omitted
 
 Hibernate: alter table fav_courses drop foreign key FKejp9ww8hwkbmmkoexe23yin3e
-2023-06-07T17:05:09.702+02:00  WARN 6596 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL &quot;alter table fav_courses drop foreign key FKejp9ww8hwkbmmkoexe23yin3e&quot; via JDBC [Table 'mysql.fav_courses' doesn't exist]
+2023-06-10T08:54:21.368+02:00  WARN 20352 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table fav_courses drop foreign key FKejp9ww8hwkbmmkoexe23yin3e" via JDBC [Table 'mysql.fav_courses' doesn't exist]
 
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &quot;alter table fav_courses drop foreign key FKejp9ww8hwkbmmkoexe23yin3e&quot; via JDBC [Table 'mysql.fav_courses' doesn't exist]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table fav_courses drop foreign key FKejp9ww8hwkbmmkoexe23yin3e" via JDBC [Table 'mysql.fav_courses' doesn't exist]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:219) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
@@ -419,7 +428,7 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &q
 	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
-	at org.hibernate.internal.SessionFactoryImpl.&lt;init&gt;(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.0.9.jar:6.0.9]
@@ -542,9 +551,9 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'mysql.fav_courses' doesn't e
 	... 126 common frames omitted
 
 Hibernate: alter table fav_courses drop foreign key FK376jpebe1uckwyqa79a2cedwk
-2023-06-07T17:05:09.714+02:00  WARN 6596 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL &quot;alter table fav_courses drop foreign key FK376jpebe1uckwyqa79a2cedwk&quot; via JDBC [Table 'mysql.fav_courses' doesn't exist]
+2023-06-10T08:54:21.379+02:00  WARN 20352 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table fav_courses drop foreign key FK376jpebe1uckwyqa79a2cedwk" via JDBC [Table 'mysql.fav_courses' doesn't exist]
 
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &quot;alter table fav_courses drop foreign key FK376jpebe1uckwyqa79a2cedwk&quot; via JDBC [Table 'mysql.fav_courses' doesn't exist]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table fav_courses drop foreign key FK376jpebe1uckwyqa79a2cedwk" via JDBC [Table 'mysql.fav_courses' doesn't exist]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:219) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
@@ -560,7 +569,7 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &q
 	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
-	at org.hibernate.internal.SessionFactoryImpl.&lt;init&gt;(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.0.9.jar:6.0.9]
@@ -683,9 +692,9 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'mysql.fav_courses' doesn't e
 	... 126 common frames omitted
 
 Hibernate: alter table lesson drop foreign key FKjs3c7skmg8bvdddok5lc7s807
-2023-06-07T17:05:09.726+02:00  WARN 6596 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL &quot;alter table lesson drop foreign key FKjs3c7skmg8bvdddok5lc7s807&quot; via JDBC [Table 'mysql.lesson' doesn't exist]
+2023-06-10T08:54:21.389+02:00  WARN 20352 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table lesson drop foreign key FKjs3c7skmg8bvdddok5lc7s807" via JDBC [Table 'mysql.lesson' doesn't exist]
 
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &quot;alter table lesson drop foreign key FKjs3c7skmg8bvdddok5lc7s807&quot; via JDBC [Table 'mysql.lesson' doesn't exist]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table lesson drop foreign key FKjs3c7skmg8bvdddok5lc7s807" via JDBC [Table 'mysql.lesson' doesn't exist]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:219) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
@@ -701,7 +710,7 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &q
 	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
-	at org.hibernate.internal.SessionFactoryImpl.&lt;init&gt;(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.0.9.jar:6.0.9]
@@ -824,9 +833,9 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'mysql.lesson' doesn't exist
 	... 126 common frames omitted
 
 Hibernate: alter table text_article drop foreign key FKgrfs9rdrc1ivj89xjo3t4wmt4
-2023-06-07T17:05:09.740+02:00  WARN 6596 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL &quot;alter table text_article drop foreign key FKgrfs9rdrc1ivj89xjo3t4wmt4&quot; via JDBC [Table 'mysql.text_article' doesn't exist]
+2023-06-10T08:54:21.401+02:00  WARN 20352 --- [    Test worker] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table text_article drop foreign key FKgrfs9rdrc1ivj89xjo3t4wmt4" via JDBC [Table 'mysql.text_article' doesn't exist]
 
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &quot;alter table text_article drop foreign key FKgrfs9rdrc1ivj89xjo3t4wmt4&quot; via JDBC [Table 'mysql.text_article' doesn't exist]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table text_article drop foreign key FKgrfs9rdrc1ivj89xjo3t4wmt4" via JDBC [Table 'mysql.text_article' doesn't exist]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:235) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:219) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
@@ -842,7 +851,7 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL &q
 	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
-	at org.hibernate.internal.SessionFactoryImpl.&lt;init&gt;(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:291) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
 	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.0.9.jar:6.0.9]
@@ -982,12 +991,12 @@ Hibernate: alter table fav_courses add constraint FKejp9ww8hwkbmmkoexe23yin3e fo
 Hibernate: alter table fav_courses add constraint FK376jpebe1uckwyqa79a2cedwk foreign key (fav_course_users_user_uid) references user_entity (user_uid)
 Hibernate: alter table lesson add constraint FKjs3c7skmg8bvdddok5lc7s807 foreign key (course_id) references course (id)
 Hibernate: alter table text_article add constraint FKgrfs9rdrc1ivj89xjo3t4wmt4 foreign key (lesson_id) references lesson (id)
-2023-06-07T17:05:10.339+02:00  INFO 6596 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
-2023-06-07T17:05:10.342+02:00  INFO 6596 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-06-07T17:05:10.632+02:00  INFO 6596 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-06-07T17:05:10.802+02:00  WARN 6596 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-06-07T17:05:11.220+02:00  INFO 6596 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 59990 (http) with context path ''
-2023-06-07T17:05:11.228+02:00  INFO 6596 --- [    Test worker] o.e.p.controller.UserControllerTest      : Started UserControllerTest in 5.853 seconds (process running for 7.174)
+2023-06-10T08:54:22.096+02:00  INFO 20352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-06-10T08:54:22.099+02:00  INFO 20352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-10T08:54:22.475+02:00  INFO 20352 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-06-10T08:54:22.690+02:00  WARN 20352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-10T08:54:23.152+02:00  INFO 20352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 57838 (http) with context path ''
+2023-06-10T08:54:23.162+02:00  INFO 20352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 6.103 seconds (process running for 7.34)
 Hibernate: insert into course (level,short_description,title) values (?,?,?)
 Hibernate: insert into lesson (course_id,title) values (?,?)
 Hibernate: insert into text_article (content,lesson_id,subtitle,title) values (?,?,?,?)
@@ -1045,9 +1054,18 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1059,67 +1077,7 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select count(*) from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: insert into user_entity (user_uid) values (?)
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1137,9 +1095,18 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1151,67 +1118,7 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select count(*) from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: insert into user_entity (user_uid) values (?)
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1229,9 +1136,18 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1243,67 +1159,7 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select count(*) from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: insert into user_entity (user_uid) values (?)
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1321,9 +1177,18 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1335,67 +1200,7 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select count(*) from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: insert into user_entity (user_uid) values (?)
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1413,9 +1218,18 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1427,21 +1241,7 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
-Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
-Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
-Hibernate: delete from fav_courses where fav_course_users_user_uid=?
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
-Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1459,9 +1259,18 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1473,8 +1282,36 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select count(*) from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: insert into user_entity (user_uid) values (?)
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1486,8 +1323,7 @@ Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) va
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
-Hibernate: insert into lesson (course_id,title) values (?,?)
-Hibernate: insert into lesson (course_id,title) values (?,?)
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
 Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
@@ -1496,28 +1332,242 @@ Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled
 Hibernate: delete from fav_courses where fav_course_users_user_uid=?
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-2023-06-07T17:05:14.092+02:00  INFO 6596 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-06-07T17:05:14.092+02:00  INFO 6596 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-06-07T17:05:14.093+02:00  INFO 6596 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: select count(*) from user_entity u1_0 where u1_0.user_uid=?
 Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
-Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
 Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: insert into user_entity (user_uid) values (?)
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
 Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
-Hibernate: SELECT id FROM course WHERE id in(SELECT enrolled_courses_id FROM enrolled_courses WHERE enrolled_course_users_user_uid LIKE ?);
-[]
-</pre>
-</span>
-</div>
-</div>
-<div id="footer">
-<p>
-<div>
-<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
-<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
-</label>
-</div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 7 cze 2023, 17:05:15</p>
-</div>
-</div>
-</body>
-</html>
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select count(*) from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: insert into user_entity (user_uid) values (?)
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select count(*) from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: insert into user_entity (user_uid) values (?)
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_courses_id,e1_1.user_uid from enrolled_courses e1_0 join user_entity e1_1 on e1_1.user_uid=e1_0.enrolled_course_users_user_uid where e1_0.enrolled_courses_id=?
+Hibernate: select f1_0.fav_courses_id,f1_1.user_uid from fav_courses f1_0 join user_entity f1_1 on f1_1.user_uid=f1_0.fav_course_users_user_uid where f1_0.fav_courses_id=?
+Hibernate: select u1_0.user_uid from user_entity u1_0 where u1_0.user_uid=?
+Hibernate: select e1_0.enrolled_course_users_user_uid,e1_1.id,e1_1.level,e1_1.short_description,e1_1.title from enrolled_courses e1_0 join course e1_1 on e1_1.id=e1_0.enrolled_courses_id where e1_0.enrolled_course_users_user_uid=?
+Hibernate: select f1_0.fav_course_users_user_uid,f1_1.id,f1_1.level,f1_1.short_description,f1_1.title from fav_courses f1_0 join course f1_1 on f1_1.id=f1_0.fav_courses_id where f1_0.fav_course_users_user_uid=?
+Hibernate: delete from enrolled_courses where enrolled_course_users_user_uid=?
+Hibernate: insert into enrolled_courses (enrolled_course_users_user_uid,enrolled_courses_id) values (?,?)
+Hibernate: delete from fav_courses where fav_course_users_user_uid=?
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+Hibernate: insert into fav_courses (fav_course_users_user_uid,fav_courses_id) values (?,?)
+2023-06-10T08:54:25.790+02:00  INFO 20352 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-10T08:54:25.791+02:00  INFO 20352 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-10T08:54:25.792+02:00  INFO 20352 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: select c1_0.id,c1_0.level,c1_0.short_description,c1_0.title from course c1_0 where c1_0.id=?
+Hibernate: SELECT * FROM lessons WHERE course_id=?
+2023-06-10T08:54:25.909+02:00  WARN 20352 --- [o-auto-1-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1146, SQLState: 42S02
+2023-06-10T08:54:25.911+02:00 ERROR 20352 --- [o-auto-1-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Table 'mysql.lessons' doesn't exist
+2023-06-10T08:54:25.922+02:00 ERROR 20352 --- [o-auto-1-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [SELECT * FROM lessons WHERE course_id=?] [Table 'mysql.lessons' doesn't exist] [n/a]; SQL [n/a]] with root cause
+
+java.sql.SQLSyntaxErrorException: Table 'mysql.lessons' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:972) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:239) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:163) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getMetaData(AbstractResultSetAccess.java:36) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:52) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.query.results.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:193) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:478) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:267) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:168) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.list(JdbcSelectExecutorStandardImpl.java:93) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:31) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:97) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:621) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:367) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:119) ~[hibernate-core-6.2.2.Final.jar:6.2.2.Final]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:129) ~[spring-data-jpa-3.1.0.jar:3.1.0]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92) ~[spring-data-jpa-3.1.0.jar:3.1.0]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:148) ~[spring-data-jpa-3.1.0.jar:3.1.0]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:136) ~[spring-data-jpa-3.1.0.jar:3.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:136) ~[spring-data-commons-3.1.0.jar:3.1.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:120) ~[spring-data-commons-3.1.0.jar:3.1.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164) ~[spring-data-commons-3.1.0.jar:3.1.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.1.0.jar:3.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:77) ~[spring-data-commons-3.1.0.jar:3.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.9.jar:6.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391) ~[spring-tx-6.0.9.jar:6.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.9.jar:6.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.0.9.jar:6.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:134) ~[spring-data-jpa-3.1.0.jar:3.1.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.0.9.jar:6.0.9]
+	at jdk.proxy3/jdk.proxy3.$Proxy129.getLessonsByCourseId(Unknown Source) ~[na:na]
+	at org.elearning.project.services.CourseService.getLessonsByCourseId(CourseService.java:73) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698) ~[spring-aop-6.0.9.jar:6.0.9]
+	at org.elearning.project.services.CourseService$$SpringCGLIB$$0.getLessonsByCourseId(<generated>) ~[main/:na]
+	at org.elearning.project.controller.CoursesController.getLessonsByCourseId(CoursesController.java:41) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207) ~[spring-web-6.0.9.jar:6.0.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152) ~[spring-web-6.0.9.jar:6.0.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.8.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.9.jar:6.0.9]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.8.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.9.jar:6.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.9.jar:6.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.9.jar:6.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.9.jar:6.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.9.jar:6.0.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.9.jar:6.0.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

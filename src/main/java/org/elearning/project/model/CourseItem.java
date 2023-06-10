@@ -1,11 +1,5 @@
 package org.elearning.project.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
-@Data
-@NoArgsConstructor
-public class CourseItem {
-    private String userId;
-    private Integer courseId;
-}
+public record CourseItem(List<Integer> courseIds) {}

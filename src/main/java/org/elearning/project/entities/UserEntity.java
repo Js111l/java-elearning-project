@@ -1,7 +1,7 @@
 package org.elearning.project.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,45 +16,30 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @ToString
+@JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class,
+    property = "userUid",
+    scope = UserEntity.class)
 public class UserEntity {
-    @Id
-    private String userUid;
+  @Id private String userUid;
 
-    @ManyToMany
-    @JoinTable(name = "enrolled_courses")
-    @JsonManagedReference
-    private List<CourseEntity> enrolledCourses = new ArrayList<>();
+  @ManyToMany
+  @JoinTable(name = "enrolled_courses")
+  private List<CourseEntity> enrolledCourses = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "fav_courses")
-    @JsonManagedReference
-    private List<CourseEntity> favCourses = new ArrayList<>();
+  @ManyToMany
+  @JoinTable(name = "fav_courses")
+  private List<CourseEntity> favCourses = new ArrayList<>();
 
-    public UserEntity(String userUid) {
-        this.userUid = userUid;
-    }
+  public UserEntity(String userUid) {
+    this.userUid = userUid;
+  }
 
-    public List<CourseEntity> getFavCourses() {
-        return new ArrayList<>(favCourses);
-    }
+  public List<CourseEntity> getFavCourses() {
+    return new ArrayList<>(favCourses);
+  }
 
-    public List<CourseEntity> getEnrolledCourses() {
-        return new ArrayList<>(enrolledCourses);
-    }
-
-    public void addEnrolledCourse(CourseEntity courseId) {
-        if (this.enrolledCourses == null) {
-            this.enrolledCourses = new ArrayList<>();
-        }
-        this.enrolledCourses.add(courseId);
-    }
-
-    public void addFavCourse(CourseEntity courseId) {
-        if (this.favCourses == null) {
-            this.favCourses = new ArrayList<>();
-        }
-        this.favCourses.add(courseId);
-    }
+  public List<CourseEntity> getEnrolledCourses() {
+    return new ArrayList<>(enrolledCourses);
+  }
 }
-
-
