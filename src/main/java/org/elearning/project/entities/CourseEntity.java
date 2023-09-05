@@ -1,11 +1,21 @@
 package org.elearning.project.entities;
 
-import com.fasterxml.jackson.annotation.*;
-import jakarta.persistence.*;
-import lombok.*;
-
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.util.List;
 import java.util.Set;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Course")
@@ -28,10 +38,10 @@ public class CourseEntity {
 
   private String level;
 
-  @OneToMany(mappedBy = "course")
+  @OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
   private List<LessonEntity> lessons;
 
-  @ManyToMany(mappedBy = "enrolledCourses")
+  @ManyToMany(mappedBy = "enrolledCourses", cascade = CascadeType.REMOVE)
   private Set<UserEntity> enrolledCourseUsers;
 
   @ManyToMany(mappedBy = "favCourses")

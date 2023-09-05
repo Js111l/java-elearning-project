@@ -1,41 +1,62 @@
 package org.elearning.project.controller;
 
-import org.elearning.project.config.Data;
-import org.elearning.project.entities.CourseEntity;
 import org.elearning.project.model.CourseItem;
-import org.elearning.project.services.CourseService;
-import org.elearning.project.services.UserService;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.List;
+import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.junit.jupiter.Container;
 
+import static util.TestUtil.VALID_ID_1;
+import static util.TestUtil.VALID_ID_2;
+import static util.TestUtil.INVALID_ID;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Profile("test")
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
+@TestInstance(Lifecycle.PER_CLASS)
 class UserControllerTest {
   @Autowired WebTestClient client;
+  static CourseItem COURSE_ITEM_WITH_COURSE_ID_2 = new CourseItem(List.of(VALID_ID_2));
+  static CourseItem COURSE_ITEM_WITH_COURSE_ID_1 = new CourseItem(List.of(VALID_ID_1));
+  static CourseItem COURSE_ITEM_WITH_INVALID_COURSE_ID = new CourseItem(List.of(INVALID_ID));
 
-  @Autowired UserService userService;
+  @Container
+  public static MySQLContainer MYSQL_CONTAINER =
+      new MySQLContainer<>("mysql:latest")
+          .withDatabaseName("test")
+          .withUsername("root")
+          .withPassword("qwerty");
 
-  @Autowired CourseService courseService;
+  @DynamicPropertySource
+  static void registerProperties(DynamicPropertyRegistry registry) {
+    registry.add("spring.datasource.username", MYSQL_CONTAINER::getUsername);
+    registry.add("spring.datasource.password", MYSQL_CONTAINER::getPassword);
+  }
 
-  static List<CourseEntity> COURSE_LIST = Data.getCourseList();
+  @BeforeAll
+  void initTestData() {
+    MYSQL_CONTAINER.start();
+  }
 
-  //    @BeforeAll
-  //    void initTestDb() {
-  //        COURSE_LIST.forEach(course ->
-  //                this.courseService.saveCourse(course)
-  //        );
-  //
-  //    }
+  @AfterAll
+  void stopTestContainer() {
+    MYSQL_CONTAINER.stop();
+  }
 
   @Test
   void getUserById_idOfUserWithFavCourses_properUserEntity() {
@@ -75,7 +96,7 @@ class UserControllerTest {
   void getUsersFavCourses_validId_properListOfCourses() {
     this.client
         .get()
-        .uri("/users/courses/favorites/id12")
+        .uri("/users/id12/courses/favorites")
         .exchange()
         .expectStatus()
         .isOk()
@@ -84,18 +105,19 @@ class UserControllerTest {
         .isEqualTo(1)
         .jsonPath("$[0].title")
         .isEqualTo("Subject for beginners")
-        .jsonPath("$[0].lessons[0].title")
-        .value(equalTo("1. Introduction"))
-        .jsonPath("$[0].lessons[1].title")
-        .value(equalTo("2. More details"))
-        .jsonPath("$", hasSize(3));
+        .jsonPath("$[0].lessonIds")
+        .isArray()
+        .jsonPath("$[0].lessonIds[0]")
+        .isEqualTo("1")
+        .jsonPath("$[0].lessonIds[1]")
+        .isEqualTo("2");
   }
 
   @Test
   void getUsersEnrolledCourses_validId_properListOfCourses() {
     this.client
         .get()
-        .uri("/users/courses/enrolled/?id=id12")
+        .uri("/users/id12/courses/enrolled")
         .exchange()
         .expectStatus()
         .isOk()
@@ -106,10 +128,12 @@ class UserControllerTest {
         .value(equalTo(1))
         .jsonPath("$[0].title")
         .isEqualTo("Subject for beginners")
-        .jsonPath("$[0].lessons[0].title")
-        .value(equalTo("1. Introduction"))
-        .jsonPath("$[0].lessons[1].title")
-        .value(equalTo("2. More details"));
+        .jsonPath("$[0].lessonIds")
+        .isArray()
+        .jsonPath("$[0].lessonIds[0]")
+        .isEqualTo("1")
+        .jsonPath("$[0].lessonIds[1]")
+        .isEqualTo("2");
   }
 
   @Test
@@ -134,24 +158,20 @@ class UserControllerTest {
   @Test
   void saveToEnrolled_validCourseItem_properlySavedCourse() {
 
-    var course = new CourseItem(List.of(1));
-
     this.client
         .post()
-        .uri("/users/courses/enrolled")
-        .bodyValue(course)
+        .uri("/users/id7/courses/enrolled")
+        .bodyValue(COURSE_ITEM_WITH_COURSE_ID_1)
         .exchange()
         .expectStatus()
         .isOk()
         .expectBody()
-        .jsonPath("$.userId")
-        .value(equalTo("id7"))
-        .jsonPath("$.courseId")
-        .value(equalTo(1));
+        .jsonPath("$.courseIds")
+        .value(equalTo(List.of(1)));
 
     this.client
         .get()
-        .uri("/users/courses/enrolled/?id=id7")
+        .uri("/users/id7/courses/enrolled")
         .exchange()
         .expectBody()
         .jsonPath("$")
@@ -160,67 +180,31 @@ class UserControllerTest {
         .value(equalTo(1))
         .jsonPath("$[0].title")
         .isEqualTo("Subject for beginners")
-        .jsonPath("$[0].lessons[0].title")
-        .value(equalTo("1. Introduction"))
-        .jsonPath("$[0].lessons[1].title")
-        .value(equalTo("2. More details"));
+        .jsonPath("$[0].lessonIds")
+        .isArray()
+        .jsonPath("$[0].lessonIds[0]")
+        .isEqualTo("1")
+        .jsonPath("$[0].lessonIds[1]")
+        .isEqualTo("2");
   }
 
   @Test
   void saveToEnrolled_validCourseItemUserAlreadyEnrolled_properlyAddedCourse() {
 
-    var course = new CourseItem(List.of(2));
-
     this.client
         .post()
-        .uri("/users/courses/enrolled")
-        .bodyValue(course)
+        .uri("/users/id5/courses/enrolled")
+        .bodyValue(COURSE_ITEM_WITH_COURSE_ID_2)
         .exchange()
         .expectStatus()
         .isOk()
         .expectBody()
-        .jsonPath("$.userId")
-        .value(equalTo("id11"))
-        .jsonPath("$.courseId")
-        .value(equalTo(2));
+        .jsonPath("$.courseIds")
+        .value(equalTo(List.of(2)));
 
     this.client
         .get()
-        .uri("/users/courses/enrolled/?id=id11")
-        .exchange()
-        .expectBody()
-        .jsonPath("$")
-        .value(hasSize(2))
-        .jsonPath("$[1].id")
-        .value(equalTo(2))
-        .jsonPath("$[1].title")
-        .isEqualTo("Subject for beginners")
-        .jsonPath("$[1].lessons[0].title")
-        .value(equalTo("1. Introduction"))
-        .jsonPath("$[1].lessons[1].title")
-        .value(equalTo("2. More details"));
-  }
-
-  @Test
-  void saveToFavorite_validCourseItem_properlySavedCourse() {
-    var course = new CourseItem(List.of(2));
-
-    this.client
-        .post()
-        .uri("/users/courses/favorites")
-        .bodyValue(course)
-        .exchange()
-        .expectStatus()
-        .isOk()
-        .expectBody()
-        .jsonPath("$.userId")
-        .value(equalTo("id7"))
-        .jsonPath("$.courseId")
-        .value(equalTo(2));
-
-    this.client
-        .get()
-        .uri("/users/courses/favorites/?id=id7")
+        .uri("/users/id5/courses/enrolled")
         .exchange()
         .expectBody()
         .jsonPath("$")
@@ -229,33 +213,66 @@ class UserControllerTest {
         .value(equalTo(2))
         .jsonPath("$[0].title")
         .isEqualTo("Subject for beginners")
-        .jsonPath("$[0].lessons[0].title")
-        .value(equalTo("1. Introduction"))
-        .jsonPath("$[0].lessons[1].title")
-        .value(equalTo("2. More details"));
+        .jsonPath("$[0].level")
+        .isEqualTo("beginner")
+        .jsonPath("$[0].lessonIds")
+        .isArray()
+        .jsonPath("$[0].lessonIds[0]")
+        .isEqualTo("3")
+        .jsonPath("$[0].lessonIds[1]")
+        .isEqualTo("4");
+  }
+
+  @Test
+  void saveToFavorite_validCourseItem_properlySavedCourse() {
+
+    this.client
+        .post()
+        .uri("/users/id7/courses/favorites")
+        .bodyValue(COURSE_ITEM_WITH_COURSE_ID_2)
+        .exchange()
+        .expectStatus()
+        .isOk()
+        .expectBody()
+        .jsonPath("$.courseIds")
+        .value(equalTo(List.of(2)));
+
+    this.client
+        .get()
+        .uri("/users/id7/courses/favorites")
+        .exchange()
+        .expectBody()
+        .jsonPath("$")
+        .value(hasSize(1))
+        .jsonPath("$[0].id")
+        .value(equalTo(2))
+        .jsonPath("$[0].title")
+        .isEqualTo("Subject for beginners")
+        .jsonPath("$[0].lessonIds")
+        .isArray()
+        .jsonPath("$[0].lessonIds[0]")
+        .isEqualTo("3")
+        .jsonPath("$[0].lessonIds[1]")
+        .isEqualTo("4");
   }
 
   @Test
   void saveToFavorite_validCourseItemUserAlreadyEnrolled_properlyAddedCourse() {
 
-    var course = new CourseItem(List.of(2));
-
     this.client
         .post()
-        .uri("/users/courses/favorites")
-        .bodyValue(course)
+        .uri("/users/id11/courses/favorites")
+        .bodyValue(COURSE_ITEM_WITH_COURSE_ID_2)
         .exchange()
         .expectStatus()
         .isOk()
         .expectBody()
-        .jsonPath("$.userId")
-        .value(equalTo("id11"))
-        .jsonPath("$.courseId")
-        .value(equalTo(2));
+        .jsonPath("$.courseIds")
+        .value(equalTo(List.of(2)));
 
     this.client
         .get()
-        .uri("/users/courses/favorites/?id=id11")
+        .uri("/users/id11/courses/favorites")
         .exchange()
         .expectBody()
         .jsonPath("$")
@@ -264,21 +281,21 @@ class UserControllerTest {
         .value(equalTo(1))
         .jsonPath("$[0].title")
         .isEqualTo("Subject for beginners")
-        .jsonPath("$[0].lessons[0].title")
-        .value(equalTo("1. Introduction"))
-        .jsonPath("$[0].lessons[1].title")
-        .value(equalTo("2. More details"));
+        .jsonPath("$[0].lessonIds")
+        .isArray()
+        .jsonPath("$[0].lessonIds[0]")
+        .isEqualTo("1")
+        .jsonPath("$[0].lessonIds[1]")
+        .isEqualTo("2");
   }
 
   @Test
   void saveToFavorite_nonExistentUser_userNotFoundExceptionThrown() {
 
-    var course = new CourseItem(List.of(2));
-
     this.client
         .post()
-        .uri("/users/courses/favorites")
-        .bodyValue(course)
+        .uri("/users/INVALID_ID/courses/favorites")
+        .bodyValue(COURSE_ITEM_WITH_COURSE_ID_2)
         .exchange()
         .expectStatus()
         .isNotFound()
@@ -291,13 +308,10 @@ class UserControllerTest {
 
   @Test
   void saveToFavorite_nonExistentCourse_courseNotFoundExceptionThrown() {
-
-    var course = new CourseItem(List.of(21));
-
     this.client
         .post()
         .uri("/users/id5/courses/favorites")
-        .bodyValue(course)
+        .bodyValue(COURSE_ITEM_WITH_INVALID_COURSE_ID)
         .exchange()
         .expectStatus()
         .isNotFound()

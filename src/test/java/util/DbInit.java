@@ -1,4 +1,4 @@
-package org.elearning.project.config;
+package util;
 
 import org.elearning.project.services.CourseService;
 import org.elearning.project.services.LessonService;
@@ -27,9 +27,9 @@ public class DbInit implements CommandLineRunner {
               this.service.saveCourse(courseEntity);
               courseEntity
                   .getLessons()
-                  .forEach(lessonEntity -> this.lessonService.saveLesson(lessonEntity));
+                  .forEach(this.lessonService::saveLesson);
             });
 
-    Data.getUserList().forEach(user -> this.userService.saveUser(user));
+    Data.getUserList().forEach(this.userService::saveUser);
   }
 }

@@ -1,12 +1,20 @@
 package org.elearning.project.controller;
 
+import org.elearning.project.model.Course;
 import org.elearning.project.model.CourseItem;
-import org.springframework.web.bind.annotation.*;
-import org.elearning.project.entities.CourseEntity;
 import org.elearning.project.entities.UserEntity;
 import org.elearning.project.services.UserService;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/users")
@@ -31,13 +39,13 @@ public class UserController {
 
   @GetMapping("{userId}/courses/favorites")
   @CrossOrigin
-  public List<CourseEntity> getUsersFavCourses(@PathVariable String userId) {
+  public List<Course> getUsersFavCourses(@PathVariable String userId) {
     return this.service.getUsersFavCourses(userId);
   }
 
   @GetMapping("{userId}/courses/enrolled")
   @CrossOrigin
-  public List<CourseEntity> getUsersEnrolledCourses(@PathVariable String userId) {
+  public List<Course> getUsersEnrolledCourses(@PathVariable String userId) {
     return this.service.getUsersEnrolledCourses(userId);
   }
 
@@ -51,7 +59,7 @@ public class UserController {
   @CrossOrigin
   public CourseItem saveToEnrolled(@PathVariable String userId, @RequestBody CourseItem course) {
     this.service.saveCourseToEnrolled(userId, course);
-    return course;
+    return course; // TODO: 05.09.2023
   }
 
   @PostMapping("{userId}/courses/favorites")

@@ -1,6 +1,8 @@
 package org.elearning.project.services;
 
+import org.elearning.project.entities.LessonEntity;
 import org.elearning.project.exceptions.CourseNotFoundException;
+import org.elearning.project.model.Course;
 import org.elearning.project.model.CourseItem;
 import org.springframework.stereotype.Service;
 import org.elearning.project.entities.CourseEntity;
@@ -93,29 +95,40 @@ public record UserService(UserRepository userRepository, CourseRepository course
         .orElseThrow(() -> new UserNotFoundException("User with given id not found!"));
   }
 
-  public List<CourseEntity> getUsersEnrolledCourses(String id) {
+  public List<Course> getUsersEnrolledCourses(String id) {
     return this.userRepository.getEnrolledCourses(id).stream()
         .map(
             x ->
-                this.courseRepository
-                    .findById(x)
-                    .orElseThrow(
-                        () ->
-                            new CourseNotFoundException(
-                                "Course with given id has not been found!")))
+                getCourseModel(
+                    this.courseRepository
+                        .findById(x)
+                        .orElseThrow(
+                            () ->
+                                new CourseNotFoundException(
+                                    "Course with given id has not been found!"))))
         .toList();
   }
 
-  public List<CourseEntity> getUsersFavCourses(String id) {
+  private Course getCourseModel(CourseEntity courseEntity) {
+    return new Course(
+        courseEntity.getId(),
+        courseEntity.getTitle(),
+        courseEntity.getShortDescription(),
+        courseEntity.getLevel(),
+        courseEntity.getLessons().stream().map(LessonEntity::getId).toList());
+  }
+
+  public List<Course> getUsersFavCourses(String id) {
     return this.userRepository.getFavCourses(id).stream()
         .map(
             x ->
-                this.courseRepository
-                    .findById(x)
-                    .orElseThrow(
-                        () ->
-                            new CourseNotFoundException(
-                                "Course with given id has not been found!")))
+                getCourseModel(
+                    this.courseRepository
+                        .findById(x)
+                        .orElseThrow(
+                            () ->
+                                new CourseNotFoundException(
+                                    "Course with given id has not been found!"))))
         .toList();
   }
 

@@ -1,4 +1,4 @@
-package org.elearning.project.config;
+package util;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;

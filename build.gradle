@@ -27,7 +27,9 @@ dependencies {
     testImplementation 'org.skyscreamer:jsonassert:1.5.0'
     implementation 'com.google.guava:guava:31.1-jre'
 
-
+    testImplementation "org.testcontainers:mysql:1.19.0"
+    testImplementation 'org.testcontainers:testcontainers:1.19.0'
+    testImplementation 'org.testcontainers:junit-jupiter:1.19.0'
 }
 
 tasks.named('test') {

@@ -1,6 +1,5 @@
 package org.elearning.project.repository;
 
-import org.elearning.project.entities.CourseEntity;
 import org.elearning.project.entities.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
