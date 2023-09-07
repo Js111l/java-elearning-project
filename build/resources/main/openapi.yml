@@ -1,0 +1,438 @@
+openapi: "3.0.1"
+
+info:
+  title: "OpenAPI definition"
+  version: "v0"
+servers:
+  - url: "http://localhost:8080"
+    description: "Generated server url"
+paths:
+  /lessons:
+    get:
+      tags:
+        - "lesson-controller"
+      operationId: "getAllLessons"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/LessonEntity"
+    put:
+      tags:
+        - "lesson-controller"
+      operationId: "updateLesson"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LessonEntity"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/LessonEntity"
+    post:
+      tags:
+        - "lesson-controller"
+      operationId: "saveLesson"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LessonEntity"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/LessonEntity"
+  /users:
+    get:
+      tags:
+        - "user-controller"
+      operationId: "getAllUser"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/UserEntity"
+    post:
+      tags:
+        - "user-controller"
+      operationId: "saveUser"
+      parameters:
+        - name: "user"
+          in: "query"
+          required: true
+          schema:
+            $ref: "#/components/schemas/UserEntity"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserEntity"
+  /users/{userId}/courses/favorites:
+    get:
+      tags:
+        - "user-controller"
+      operationId: "getUsersFavCourses"
+      parameters:
+        - name: "userId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Course"
+    post:
+      tags:
+        - "user-controller"
+      operationId: "saveToFavorite"
+      parameters:
+        - name: "userId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CourseItem"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CourseItem"
+  /users/{userId}/courses/enrolled:
+    get:
+      tags:
+        - "user-controller"
+      operationId: "getUsersEnrolledCourses"
+      parameters:
+        - name: "userId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Course"
+    post:
+      tags:
+        - "user-controller"
+      operationId: "saveToEnrolled"
+      parameters:
+        - name: "userId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CourseItem"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CourseItem"
+  /courses:
+    get:
+      tags:
+        - "courses-controller"
+      operationId: "getAllCourses_1"
+      parameters:
+        - name: "name"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/CourseEntity"
+    post:
+      tags:
+        - "courses-controller"
+      operationId: "saveCourse"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CourseEntity"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CourseEntity"
+  /users/{id}:
+    get:
+      tags:
+        - "user-controller"
+      operationId: "getUserById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserEntity"
+  /lessons/{id}:
+    get:
+      tags:
+        - "lesson-controller"
+      operationId: "getLessonById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/LessonEntity"
+  /courses/{id}:
+    get:
+      tags:
+        - "courses-controller"
+      operationId: "getCourse"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CourseEntity"
+  /courses/{id}/lessons:
+    get:
+      tags:
+        - "courses-controller"
+      operationId: "getLessonsByCourseId"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        '200':
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/LessonEntity"
+  /users/{userId}:
+    delete:
+      tags:
+        - "user-controller"
+      operationId: "deleteUserById"
+      parameters:
+        - name: "userId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        '200':
+          description: "OK"
+  /lessons/{lessonId}:
+    delete:
+      tags:
+        - "lesson-controller"
+      operationId: "deleteLessonById"
+      parameters:
+        - name: "lessonId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        '200':
+          description: "OK"
+  /courses/{courseId}:
+    delete:
+      tags:
+        - "courses-controller"
+      operationId: "deleteCourseById"
+      parameters:
+        - name: "courseId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        '200':
+          description: "OK"
+  /courses/{courseId}/lessons/{lessonId}:
+    delete:
+      tags:
+        - "courses-controller"
+      operationId: "deleteLessonInCourse"
+      parameters:
+        - name: "courseId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+        - name: "lessonId"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        '200':
+          description: "OK"
+components:
+  schemas:
+    LessonEntity:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        title:
+          type: "string"
+        articles:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/TextArticleEntity"
+    TextArticleEntity:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        title:
+          type: "string"
+        subtitle:
+          type: "string"
+        content:
+          type: "string"
+    CourseEntity:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        title:
+          type: "string"
+        shortDescription:
+          type: "string"
+        level:
+          type: "string"
+        lessons:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/LessonEntity"
+        enrolledCourseUsers:
+          uniqueItems: true
+          type: "array"
+          items:
+            $ref: "#/components/schemas/UserEntity"
+        favCourseUsers:
+          uniqueItems: true
+          type: "array"
+          items:
+            $ref: "#/components/schemas/UserEntity"
+    UserEntity:
+      type: "object"
+      properties:
+        userUid:
+          type: "string"
+        enrolledCourses:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/CourseEntity"
+        favCourses:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/CourseEntity"
+    CourseItem:
+      type: "object"
+      properties:
+        courseIds:
+          type: "array"
+          items:
+            type: "integer"
+            format: "int32"
+    Course:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int32"
+        title:
+          type: "string"
+        shortDescription:
+          type: "string"
+        level:
+          type: "string"
+        lessonIds:
+          type: "array"
+          items:
+            type: "integer"
+            format: "int32"

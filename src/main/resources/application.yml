@@ -6,4 +6,6 @@ spring:
     url: jdbc:mysql://localhost:3306/elearning_db
     username: root
     password: qwerty
-
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-doc.html

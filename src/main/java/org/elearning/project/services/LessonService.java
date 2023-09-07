@@ -11,11 +11,9 @@ import java.util.List;
 @Service
 public class LessonService {
   private final LessonRepository lessonRepository;
-  private final CourseRepository courseRepository;
 
-  public LessonService(LessonRepository lessonRepository, CourseRepository courseRepository) {
+  public LessonService(LessonRepository lessonRepository) {
     this.lessonRepository = lessonRepository;
-    this.courseRepository = courseRepository;
   }
 
   public LessonEntity saveLesson(LessonEntity lessonEntity) {

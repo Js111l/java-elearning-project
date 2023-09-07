@@ -1,8 +1,12 @@
 package org.elearning.project.controller;
 
+import org.elearning.project.services.CourseService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import util.Data;
+import org.junit.jupiter.api.BeforeEach;
+import org.springframework.test.context.ActiveProfiles;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import testutil.Data;
 import org.elearning.project.entities.LessonEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -21,38 +25,22 @@ import org.testcontainers.junit.jupiter.Container;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
+import static testutil.TestUtil.LESSON_ENTITIES;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
+@ActiveProfiles("test")
 @TestInstance(Lifecycle.PER_CLASS)
 class LessonControllerTest {
   @Autowired WebTestClient client;
-  static List<LessonEntity> LESSON_ENTITIES =
-      Data.getCourseList().stream().flatMap(x -> x.getLessons().stream()).toList();
+  @Autowired
+  CourseService courseService;
 
-  @Container
-  public static MySQLContainer MYSQL_CONTAINER =
-      new MySQLContainer<>("mysql:latest")
-          .withDatabaseName("test")
-          .withUsername("root")
-          .withPassword("qwerty");
 
-  @DynamicPropertySource
-  static void registerProperties(DynamicPropertyRegistry registry) {
-    registry.add("spring.datasource.username", MYSQL_CONTAINER::getUsername);
-    registry.add("spring.datasource.password", MYSQL_CONTAINER::getPassword);
-  }
-
-  @BeforeAll
+  @BeforeEach
   void initTestData() {
-    MYSQL_CONTAINER.start();
+    Data.getCourseList().forEach(course -> this.courseService.saveCourse(course));
   }
-
-  @AfterAll
-  void stopTestContainer() {
-    MYSQL_CONTAINER.stop();
-  }
-
   @Test
   void getAllLessons_void_properListOfLessons() {
 

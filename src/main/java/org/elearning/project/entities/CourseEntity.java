@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import lombok.Getter;
@@ -38,12 +39,22 @@ public class CourseEntity {
 
   private String level;
 
-  @OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
+  @OneToMany(
+      mappedBy = "course",
+      cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
   private List<LessonEntity> lessons;
 
   @ManyToMany(mappedBy = "enrolledCourses", cascade = CascadeType.REMOVE)
-  private Set<UserEntity> enrolledCourseUsers;
+  private Set<UserEntity> enrolledCourseUsers = new HashSet<>();
 
   @ManyToMany(mappedBy = "favCourses")
-  private Set<UserEntity> favCourseUsers;
+  private Set<UserEntity> favCourseUsers = new HashSet<>();
+
+  public void addFavUser(UserEntity user) {
+    favCourseUsers.add(user);
+  }
+
+  public void addEnrolledUser(UserEntity user) {
+    enrolledCourseUsers.add(user);
+  }
 }

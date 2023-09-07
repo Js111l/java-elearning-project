@@ -1,4 +1,4 @@
-package util;
+package testutil;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -26,10 +26,8 @@ public class Data {
                 .mapToObj(
                     x -> {
                       var user = getUser("id" + x);
-                      var course = getCourseObject();
-                      course.setId(1);
-                      user.setEnrolledCourses(List.of(course));
-                      user.setFavCourses(List.of(course, course));
+                      user.setEnrolledCourses(List.of(getCourseObject()));
+                      user.setFavCourses(List.of(getCourseObject()));
                       return user;
                     })
                 .toList()));
