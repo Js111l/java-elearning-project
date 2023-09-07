@@ -1,4 +1,4 @@
-package util;
+package testutil;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;

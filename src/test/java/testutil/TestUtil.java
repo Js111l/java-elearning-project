@@ -1,4 +1,4 @@
-package util;
+package testutil;
 
 public class TestUtil {
   public static final Integer VALID_ID_2 = 2;

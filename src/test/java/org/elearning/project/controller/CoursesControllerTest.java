@@ -6,7 +6,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
-import util.Data;
+import testutil.Data;
 import org.elearning.project.entities.CourseEntity;
 import org.elearning.project.services.CourseService;
 import org.junit.jupiter.api.BeforeAll;

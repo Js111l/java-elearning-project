@@ -1,4 +1,4 @@
-package util;
+package testutil;
 
 import org.elearning.project.services.CourseService;
 import org.elearning.project.services.LessonService;

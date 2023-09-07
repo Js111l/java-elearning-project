@@ -2,7 +2,7 @@ package org.elearning.project.controller;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import util.Data;
+import testutil.Data;
 import org.elearning.project.entities.LessonEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
