@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.elearning.project.controller.CoursesControllerTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-09-08T12:20:03" hostname="LAPTOP" time="18.0">
+  <properties/>
+  <testcase name="deleteCourseById_properCourseId_properlyDeletedCourse()" classname="org.elearning.project.controller.CoursesControllerTest" time="2.975"/>
+  <testcase name="getCourseByName_invalidCourseName_courseNotFoundExceptionThrown()" classname="org.elearning.project.controller.CoursesControllerTest" time="3.732"/>
+  <testcase name="getAllCourses_void_properList()" classname="org.elearning.project.controller.CoursesControllerTest" time="1.725"/>
+  <testcase name="getCourseByName_validCourseNameSuffix_properCourseEntity()" classname="org.elearning.project.controller.CoursesControllerTest" time="1.286"/>
+  <testcase name="getLessonsByCourseId_properId_properListOfLessons()" classname="org.elearning.project.controller.CoursesControllerTest" time="2.212"/>
+  <testcase name="deleteLessonInCourse_properIds_properlyDeletedLessonsInCourse()" classname="org.elearning.project.controller.CoursesControllerTest" time="2.263"/>
+  <testcase name="getCourseByName_validCourseNamePrefix_properCourseEntity()" classname="org.elearning.project.controller.CoursesControllerTest" time="1.545"/>
+  <testcase name="getCourse_validCourseId_properCourseEntity()" classname="org.elearning.project.controller.CoursesControllerTest" time="1.135"/>
+  <testcase name="getCourse_invalidCourseId_courseNotFoundExceptionThrown()" classname="org.elearning.project.controller.CoursesControllerTest" time="1.119"/>
+  <system-out><![CDATA[14:19:49.225 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.elearning.project.controller.CoursesControllerTest]: CoursesControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:19:49.530 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.elearning.project.Main for test class org.elearning.project.controller.CoursesControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:19:50.952+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:19:50.952+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:19:53.701+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:19:54.236+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 507 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:19:56.804+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:19:56.831+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:19:56.837+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:19:57.160+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:19:57.165+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6089 ms
+2023-09-08T14:19:57.691+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:19:57.910+02:00  INFO 29352 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-09-08T14:19:57.921+02:00  INFO 29352 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-09-08T14:19:58.285+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:19:58.645+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:19:58.670+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-08T14:19:58.954+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:19:58.962+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-08T14:19:59.030+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:19:59.491+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:00.784+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:00.876+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:00.884+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:01.483+02:00  INFO 29352 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-09-08T14:20:02.123+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:02.913+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64021 (http) with context path ''
+2023-09-08T14:20:02.931+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 12.979 seconds (process running for 16.196)
+2023-09-08T14:20:05.725+02:00  INFO 29352 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:05.725+02:00  INFO 29352 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:05.725+02:00  INFO 29352 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-09-08T14:20:06.368+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:06.370+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:06.384+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:06.392+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-08T14:20:06.400+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:20:06.576+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:20:06.576+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:20:07.595+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:20:07.659+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:20:08.050+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:20:08.050+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:20:08.050+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:20:08.137+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:20:08.138+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1557 ms
+2023-09-08T14:20:08.217+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:20:08.237+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:08.238+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:20:08.240+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-09-08T14:20:08.244+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:20:08.244+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-09-08T14:20:08.245+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:20:08.291+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:08.393+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:08.410+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:08.410+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:08.710+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:08.940+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64024 (http) with context path ''
+2023-09-08T14:20:08.950+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 2.526 seconds (process running for 22.213)
+2023-09-08T14:20:08.994+02:00  INFO 29352 --- [o-auto-2-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:08.994+02:00  INFO 29352 --- [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:08.994+02:00  INFO 29352 --- [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-09-08T14:20:10.131+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:10.131+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:10.140+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:10.140+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-09-08T14:20:10.147+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:20:10.203+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:20:10.203+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:20:10.580+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:20:10.618+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:20:10.737+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:20:10.737+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:20:10.737+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:20:10.831+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:20:10.831+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 620 ms
+2023-09-08T14:20:10.894+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:20:10.911+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:10.911+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:20:10.911+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-09-08T14:20:10.919+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:20:10.920+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-09-08T14:20:10.920+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:20:10.951+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:11.050+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:11.064+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:11.064+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:11.275+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:11.528+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64027 (http) with context path ''
+2023-09-08T14:20:11.537+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 1.384 seconds (process running for 24.8)
+2023-09-08T14:20:11.620+02:00  INFO 29352 --- [o-auto-3-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:11.620+02:00  INFO 29352 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:11.626+02:00  INFO 29352 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2023-09-08T14:20:11.861+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:11.870+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:11.871+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:11.871+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2023-09-08T14:20:11.871+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:20:11.921+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:20:11.921+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:20:12.201+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:20:12.222+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:20:12.361+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:20:12.365+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:20:12.365+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:20:12.421+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:20:12.421+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 500 ms
+2023-09-08T14:20:12.465+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:20:12.480+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:12.480+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:20:12.483+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2023-09-08T14:20:12.483+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:20:12.483+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2023-09-08T14:20:12.483+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:20:12.525+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:12.621+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:12.650+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:12.650+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:12.831+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:12.981+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64030 (http) with context path ''
+2023-09-08T14:20:12.985+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 1.107 seconds (process running for 26.25)
+2023-09-08T14:20:13.042+02:00  INFO 29352 --- [o-auto-4-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:13.042+02:00  INFO 29352 --- [o-auto-4-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:13.050+02:00  INFO 29352 --- [o-auto-4-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2023-09-08T14:20:13.155+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:13.155+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:13.163+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:13.163+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2023-09-08T14:20:13.163+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:20:13.227+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:20:13.227+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:20:14.110+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:20:14.133+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:20:14.320+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:20:14.320+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:20:14.320+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:20:14.452+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:20:14.452+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1222 ms
+2023-09-08T14:20:14.543+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:20:14.571+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:14.571+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:20:14.571+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2023-09-08T14:20:14.575+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:20:14.575+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2023-09-08T14:20:14.575+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:20:14.625+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:14.741+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:14.791+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:14.791+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:14.976+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:15.195+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64033 (http) with context path ''
+2023-09-08T14:20:15.203+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 2.037 seconds (process running for 28.471)
+2023-09-08T14:20:15.275+02:00  INFO 29352 --- [o-auto-5-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:15.275+02:00  INFO 29352 --- [o-auto-5-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:15.277+02:00  INFO 29352 --- [o-auto-5-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-09-08T14:20:15.370+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:15.370+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:15.377+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:15.377+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2023-09-08T14:20:15.380+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:20:15.441+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:20:15.441+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:20:16.070+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:20:16.102+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:20:16.345+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:20:16.345+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:20:16.345+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:20:16.444+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:20:16.444+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1003 ms
+2023-09-08T14:20:16.543+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:20:16.592+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:16.592+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:20:16.596+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2023-09-08T14:20:16.600+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection conn50: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:20:16.600+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2023-09-08T14:20:16.600+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:20:16.690+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:16.829+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:16.841+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:16.841+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:17.131+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:17.376+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64036 (http) with context path ''
+2023-09-08T14:20:17.384+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 1.996 seconds (process running for 30.645)
+2023-09-08T14:20:17.465+02:00  INFO 29352 --- [o-auto-6-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:17.467+02:00  INFO 29352 --- [o-auto-6-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:17.471+02:00  INFO 29352 --- [o-auto-6-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2023-09-08T14:20:17.615+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:17.621+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:17.624+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:17.624+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2023-09-08T14:20:17.635+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:20:17.723+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:20:17.723+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:20:18.335+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:20:18.350+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:20:18.470+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:20:18.474+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:20:18.474+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:20:18.515+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:20:18.515+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 785 ms
+2023-09-08T14:20:18.555+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:20:18.570+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:18.570+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:20:18.571+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2023-09-08T14:20:18.571+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection conn60: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:20:18.571+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2023-09-08T14:20:18.571+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:20:18.612+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:18.690+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:18.716+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:18.716+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:18.833+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:19.040+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64039 (http) with context path ''
+2023-09-08T14:20:19.050+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 1.411 seconds (process running for 32.316)
+2023-09-08T14:20:19.090+02:00  INFO 29352 --- [o-auto-7-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:19.090+02:00  INFO 29352 --- [o-auto-7-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:19.090+02:00  INFO 29352 --- [o-auto-7-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-09-08T14:20:19.162+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:19.170+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:19.179+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:19.180+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2023-09-08T14:20:19.185+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:20:19.270+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:20:19.276+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:20:19.547+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:20:19.560+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:20:19.660+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:20:19.660+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:20:19.660+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:20:19.720+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:20:19.720+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 444 ms
+2023-09-08T14:20:19.765+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:20:19.773+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:19.773+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:20:19.781+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2023-09-08T14:20:19.781+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection conn70: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:20:19.781+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2023-09-08T14:20:19.781+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:20:19.821+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:19.900+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:19.910+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:19.910+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:20.050+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:20.220+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64042 (http) with context path ''
+2023-09-08T14:20:20.230+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 1.04 seconds (process running for 33.491)
+2023-09-08T14:20:20.260+02:00  INFO 29352 --- [o-auto-8-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:20.260+02:00  INFO 29352 --- [o-auto-8-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:20.269+02:00  INFO 29352 --- [o-auto-8-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2023-09-08T14:20:20.311+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:20.311+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:20.318+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:20.318+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2023-09-08T14:20:20.320+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-09-08T14:20:20.358+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Starting CoursesControllerTest using Java 17.0.6 with PID 29352 (started by kubas in C:\Users\kubas\Desktop\FIXXXX\java-elearning-project)
+2023-09-08T14:20:20.358+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : The following 1 profile is active: "test"
+2023-09-08T14:20:20.617+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-09-08T14:20:20.642+02:00  INFO 29352 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 3 JPA repository interfaces.
+2023-09-08T14:20:20.740+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-09-08T14:20:20.740+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-08T14:20:20.740+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-09-08T14:20:20.790+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-08T14:20:20.790+02:00  INFO 29352 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 430 ms
+2023-09-08T14:20:20.847+02:00  INFO 29352 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-09-08T14:20:20.861+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:20.862+02:00  INFO 29352 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-09-08T14:20:20.864+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2023-09-08T14:20:20.864+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection conn80: url=jdbc:h2:mem:testdb user=TEST
+2023-09-08T14:20:20.864+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2023-09-08T14:20:20.868+02:00  INFO 29352 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-09-08T14:20:20.900+02:00  INFO 29352 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-09-08T14:20:21.025+02:00  INFO 29352 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-09-08T14:20:21.047+02:00  INFO 29352 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-09-08T14:20:21.047+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:21.221+02:00  WARN 29352 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-08T14:20:21.357+02:00  INFO 29352 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64048 (http) with context path ''
+2023-09-08T14:20:21.361+02:00  INFO 29352 --- [    Test worker] o.e.p.controller.CoursesControllerTest   : Started CoursesControllerTest in 1.039 seconds (process running for 34.624)
+2023-09-08T14:20:21.406+02:00  INFO 29352 --- [o-auto-9-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-08T14:20:21.406+02:00  INFO 29352 --- [o-auto-9-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-08T14:20:21.406+02:00  INFO 29352 --- [o-auto-9-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-09-08T14:20:21.438+02:00  INFO 29352 --- [    Test worker] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-09-08T14:20:21.438+02:00  INFO 29352 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-09-08T14:20:21.440+02:00  INFO 29352 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-09-08T14:20:21.440+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2023-09-08T14:20:21.440+02:00  INFO 29352 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -38,6 +38,7 @@ public class LessonEntity {
 
   @ManyToOne
   @JoinColumn(name = "course_id")
+
   @JsonIgnore
   private CourseEntity course;
 }

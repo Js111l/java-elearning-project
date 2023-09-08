@@ -1,6 +1,7 @@
 package org.elearning.project.services;
 
 import jakarta.transaction.Transactional;
+import java.util.stream.Collectors;
 import org.elearning.project.entities.LessonEntity;
 import org.elearning.project.exceptions.CourseNotFoundException;
 import org.elearning.project.exceptions.LessonNotFoundException;
@@ -32,12 +33,12 @@ public class CourseService {
   }
 
   public List<CourseEntity> getCourses(String name) {
-    var list = this.courseRepository.findByName(name);
-    // todo  allow empty?
-    if (!list.isEmpty()) {
-      return this.courseRepository.findByName(name);
-    } else {
+    final var list = this.courseRepository.findByName(name);
+
+    if (list.isEmpty()) {
       throw new CourseNotFoundException("No course with given id found!");
+    } else {
+      return this.courseRepository.findByName(name);
     }
   }
 
@@ -70,6 +71,7 @@ public class CourseService {
     this.courseRepository
         .findById(id)
         .orElseThrow(() -> new CourseNotFoundException("Course with given id has not been found!"));
+
     return this.courseRepository.getLessonsByCourseId(id).stream()
         .map(
             x ->
@@ -79,6 +81,6 @@ public class CourseService {
                         () ->
                             new LessonNotFoundException(
                                 "Lesson with given id has not been found!")))
-        .toList();
+        .collect(Collectors.toList());
   }
 }

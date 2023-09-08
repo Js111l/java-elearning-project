@@ -1,8 +1,7 @@
 package org.elearning.project.controller;
 
-import org.elearning.project.model.CourseItem;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.elearning.project.services.UserService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -10,50 +9,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
+
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.List;
-import org.testcontainers.containers.MySQLContainer;
-import org.testcontainers.junit.jupiter.Container;
+import testutil.Data;
 
-import static testutil.TestUtil.VALID_ID_1;
-import static testutil.TestUtil.VALID_ID_2;
-import static testutil.TestUtil.INVALID_ID;
+
+import static testutil.TestUtil.COURSE_ITEM_WITH_COURSE_ID_1;
+import static testutil.TestUtil.COURSE_ITEM_WITH_COURSE_ID_2;
+import static testutil.TestUtil.COURSE_ITEM_WITH_INVALID_COURSE_ID;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
+@ActiveProfiles("test")
 @TestInstance(Lifecycle.PER_CLASS)
 class UserControllerTest {
   @Autowired WebTestClient client;
-  static CourseItem COURSE_ITEM_WITH_COURSE_ID_2 = new CourseItem(List.of(VALID_ID_2));
-  static CourseItem COURSE_ITEM_WITH_COURSE_ID_1 = new CourseItem(List.of(VALID_ID_1));
-  static CourseItem COURSE_ITEM_WITH_INVALID_COURSE_ID = new CourseItem(List.of(INVALID_ID));
+  @Autowired UserService userService;
 
-  @Container
-  public static MySQLContainer MYSQL_CONTAINER =
-      new MySQLContainer<>("mysql:latest")
-          .withDatabaseName("test")
-          .withUsername("root")
-          .withPassword("qwerty");
-
-  @DynamicPropertySource
-  static void registerProperties(DynamicPropertyRegistry registry) {
-    registry.add("spring.datasource.username", MYSQL_CONTAINER::getUsername);
-    registry.add("spring.datasource.password", MYSQL_CONTAINER::getPassword);
-  }
-
-  @BeforeAll
+  @BeforeEach
   void initTestData() {
-    MYSQL_CONTAINER.start();
-  }
-
-  @AfterAll
-  void stopTestContainer() {
-    MYSQL_CONTAINER.stop();
+    Data.getUserList().forEach(user -> this.userService.saveUser(user));
   }
 
   @Test
@@ -68,7 +48,7 @@ class UserControllerTest {
         .jsonPath("$.userUid")
         .value(equalTo("id13"))
         .jsonPath("$.favCourses")
-        .value(hasSize(2))
+        .value(hasSize(1))
         .jsonPath("$.enrolledCourses")
         .value(hasSize(1));
   }
@@ -100,15 +80,15 @@ class UserControllerTest {
         .isOk()
         .expectBody()
         .jsonPath("$[0].id")
-        .isEqualTo(1)
+        .isEqualTo(4)
         .jsonPath("$[0].title")
         .isEqualTo("Subject for beginners")
         .jsonPath("$[0].lessonIds")
         .isArray()
         .jsonPath("$[0].lessonIds[0]")
-        .isEqualTo("1")
+        .isEqualTo("7")
         .jsonPath("$[0].lessonIds[1]")
-        .isEqualTo("2");
+        .isEqualTo("8");
   }
 
   @Test
@@ -123,15 +103,15 @@ class UserControllerTest {
         .jsonPath("$")
         .value(hasSize(1))
         .jsonPath("$[0].id")
-        .value(equalTo(1))
+        .value(equalTo(3))
         .jsonPath("$[0].title")
         .isEqualTo("Subject for beginners")
         .jsonPath("$[0].lessonIds")
         .isArray()
         .jsonPath("$[0].lessonIds[0]")
-        .isEqualTo("1")
+        .isEqualTo("5")
         .jsonPath("$[0].lessonIds[1]")
-        .isEqualTo("2");
+        .isEqualTo("6");
   }
 
   @Test
@@ -274,17 +254,17 @@ class UserControllerTest {
         .exchange()
         .expectBody()
         .jsonPath("$")
-        .value(hasSize(2))
+        .value(hasSize(1))
         .jsonPath("$[0].id")
-        .value(equalTo(1))
+        .value(equalTo(2))
         .jsonPath("$[0].title")
         .isEqualTo("Subject for beginners")
         .jsonPath("$[0].lessonIds")
         .isArray()
         .jsonPath("$[0].lessonIds[0]")
-        .isEqualTo("1")
+        .isEqualTo("3")
         .jsonPath("$[0].lessonIds[1]")
-        .isEqualTo("2");
+        .isEqualTo("4");
   }
 
   @Test

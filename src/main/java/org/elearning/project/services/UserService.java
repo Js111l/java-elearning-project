@@ -13,43 +13,49 @@ import org.elearning.project.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public record UserService(UserRepository userRepository, CourseRepository courseRepository) {
 
   public void saveUser(UserEntity user) {
-    if (!this.userRepository.existsById(user.getUserUid())) {
-      user.getFavCourses()
-          .forEach(
-              x -> {
-                this.userRepository.save(user);
-                x.setFavCourseUsers(Set.of(user));
-                this.courseRepository.save(x);
-              });
+    user.getEnrolledCourses()
+        .forEach(
+            course -> {
+              final var optionalCourseEntity = this.courseRepository.findById(course.getId());
+              if (optionalCourseEntity.isPresent()) {
+                final var fetchedCourse = optionalCourseEntity.get();
+                fetchedCourse.addEnrolledUser(user);
+                this.courseRepository.save(fetchedCourse);
+              } else {
+                course.addEnrolledUser(user);
+                this.courseRepository.save(course);
+              }
+            });
 
-      user.getEnrolledCourses()
-          .forEach(
-              x -> {
-                this.userRepository.save(user);
-                x.setEnrolledCourseUsers(Set.of(user));
-                this.courseRepository.save(x);
-              });
+    user.getFavCourses()
+        .forEach(
+            course -> {
+              final var optionalCourseEntity = this.courseRepository.findById(course.getId());
+              if (optionalCourseEntity.isPresent()) {
+                final var fetchedCourse = optionalCourseEntity.get();
+                fetchedCourse.addFavUser(user);
+                this.courseRepository.save(fetchedCourse);
+              } else {
+                course.addFavUser(user);
+                this.courseRepository.save(course);
+              }
+            });
 
-      this.userRepository.save(user);
-    } else {
-      throw new RuntimeException();
-      // TODO: 10.06.2023
-    }
+    this.userRepository.save(user);
   }
 
   public void saveCourseToFavorite(String userId, CourseItem courseItem) {
-    UserEntity user =
+    final var user =
         userRepository
             .findById(userId)
             .orElseThrow(() -> new UserNotFoundException("User with given id not found!"));
 
-    var list = new ArrayList<>(user.getFavCourses());
+    final var list = new ArrayList<>(user.getFavCourses());
     courseItem
         .courseIds()
         .forEach(
@@ -67,12 +73,12 @@ public record UserService(UserRepository userRepository, CourseRepository course
   }
 
   public void saveCourseToEnrolled(String userId, CourseItem courseItem) {
-    UserEntity user =
+    final var user =
         userRepository
             .findById(userId)
             .orElseThrow(() -> new UserNotFoundException("User with given id not found!"));
 
-    var list = new ArrayList<>(user.getEnrolledCourses());
+    final var list = new ArrayList<>(user.getEnrolledCourses());
     courseItem
         .courseIds()
         .forEach(
