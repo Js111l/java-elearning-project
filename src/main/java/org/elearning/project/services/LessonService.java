@@ -1,7 +1,6 @@
 package org.elearning.project.services;
 
 import org.elearning.project.exceptions.LessonNotFoundException;
-import org.elearning.project.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 import org.elearning.project.entities.LessonEntity;
 import org.elearning.project.repository.LessonRepository;

@@ -13,7 +13,6 @@ import org.elearning.project.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public record UserService(UserRepository userRepository, CourseRepository courseRepository) {
@@ -22,9 +21,9 @@ public record UserService(UserRepository userRepository, CourseRepository course
     user.getEnrolledCourses()
         .forEach(
             course -> {
-              var optionalCourseEntity = this.courseRepository.findById(course.getId());
+              final var optionalCourseEntity = this.courseRepository.findById(course.getId());
               if (optionalCourseEntity.isPresent()) {
-                var fetchedCourse = optionalCourseEntity.get();
+                final var fetchedCourse = optionalCourseEntity.get();
                 fetchedCourse.addEnrolledUser(user);
                 this.courseRepository.save(fetchedCourse);
               } else {
@@ -36,9 +35,9 @@ public record UserService(UserRepository userRepository, CourseRepository course
     user.getFavCourses()
         .forEach(
             course -> {
-              var optionalCourseEntity = this.courseRepository.findById(course.getId());
+              final var optionalCourseEntity = this.courseRepository.findById(course.getId());
               if (optionalCourseEntity.isPresent()) {
-                var fetchedCourse = optionalCourseEntity.get();
+                final var fetchedCourse = optionalCourseEntity.get();
                 fetchedCourse.addFavUser(user);
                 this.courseRepository.save(fetchedCourse);
               } else {
@@ -51,12 +50,12 @@ public record UserService(UserRepository userRepository, CourseRepository course
   }
 
   public void saveCourseToFavorite(String userId, CourseItem courseItem) {
-    UserEntity user =
+    final var user =
         userRepository
             .findById(userId)
             .orElseThrow(() -> new UserNotFoundException("User with given id not found!"));
 
-    var list = new ArrayList<>(user.getFavCourses());
+    final var list = new ArrayList<>(user.getFavCourses());
     courseItem
         .courseIds()
         .forEach(
@@ -74,12 +73,12 @@ public record UserService(UserRepository userRepository, CourseRepository course
   }
 
   public void saveCourseToEnrolled(String userId, CourseItem courseItem) {
-    UserEntity user =
+    final var user =
         userRepository
             .findById(userId)
             .orElseThrow(() -> new UserNotFoundException("User with given id not found!"));
 
-    var list = new ArrayList<>(user.getEnrolledCourses());
+    final var list = new ArrayList<>(user.getEnrolledCourses());
     courseItem
         .courseIds()
         .forEach(

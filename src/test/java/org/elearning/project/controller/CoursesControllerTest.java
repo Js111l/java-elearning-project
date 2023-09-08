@@ -1,11 +1,5 @@
 package org.elearning.project.controller;
 
-import java.util.stream.Collectors;
-import org.elearning.project.entities.LessonEntity;
-import org.elearning.project.repository.CourseRepository;
-import org.junit.After;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.test.context.ActiveProfiles;
 import testutil.Data;
@@ -28,7 +22,7 @@ import static org.hamcrest.Matchers.hasSize;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @ActiveProfiles("test")
 @TestInstance(Lifecycle.PER_CLASS)
-public class CoursesControllerTest {
+class CoursesControllerTest {
 
   @Autowired WebTestClient webTestClient;
 
@@ -40,7 +34,7 @@ public class CoursesControllerTest {
   }
 
   @Test
-  public void getAllCourses_void_properList() {
+  void getAllCourses_void_properList() {
 
     this.webTestClient
         .get()
@@ -57,7 +51,7 @@ public class CoursesControllerTest {
   }
 
   @Test
-  public void getLessonsByCourseId_properId_properListOfLessons() {
+  void getLessonsByCourseId_properId_properListOfLessons() {
     this.webTestClient
         .get()
         .uri("/courses/1/lessons")
@@ -71,7 +65,7 @@ public class CoursesControllerTest {
   }
 
   @Test
-  public void getCourse_validCourseId_properCourseEntity() {
+  void getCourse_validCourseId_properCourseEntity() {
 
     this.webTestClient
         .get()
@@ -87,7 +81,7 @@ public class CoursesControllerTest {
   }
 
   @Test
-  public void getCourseByName_validCourseNamePrefix_properCourseEntity() {
+  void getCourseByName_validCourseNamePrefix_properCourseEntity() {
     this.webTestClient
         .get()
         .uri(x -> x.path("/courses").queryParam("name", "Sub").build())
@@ -101,7 +95,7 @@ public class CoursesControllerTest {
   }
 
   @Test
-  public void getCourseByName_validCourseNameSuffix_properCourseEntity() {
+  void getCourseByName_validCourseNameSuffix_properCourseEntity() {
     this.webTestClient
         .get()
         .uri(x -> x.path("/courses").queryParam("name", "beginners").build())
@@ -115,7 +109,7 @@ public class CoursesControllerTest {
   }
 
   @Test
-  public void getCourseByName_invalidCourseName_courseNotFoundExceptionThrown() {
+  void getCourseByName_invalidCourseName_courseNotFoundExceptionThrown() {
     this.webTestClient
         .get()
         .uri(x -> x.path("/courses").queryParam("name", "non-existent course").build())
@@ -130,7 +124,7 @@ public class CoursesControllerTest {
   }
 
   @Test
-  public void getCourse_invalidCourseId_courseNotFoundExceptionThrown() {
+  void getCourse_invalidCourseId_courseNotFoundExceptionThrown() {
     this.webTestClient
         .get()
         .uri("/courses/99")

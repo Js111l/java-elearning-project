@@ -25,7 +25,7 @@ public class Data {
             IntStream.rangeClosed(11, 20)
                 .mapToObj(
                     x -> {
-                      var user = getUser("id" + x);
+                      final var user = getUser("id" + x);
                       user.setEnrolledCourses(List.of(getCourseObject()));
                       user.setFavCourses(List.of(getCourseObject()));
                       return user;
@@ -34,10 +34,10 @@ public class Data {
   }
 
   public static LessonEntity getLesson() {
-    LessonEntity lesson = new LessonEntity();
+    final var lesson = new LessonEntity();
     lesson.setTitle("1. Introduction");
 
-    TextArticleEntity articleEntity = new TextArticleEntity();
+    final var articleEntity = new TextArticleEntity();
     articleEntity.setTitle("Definition and scope of [subject]");
     articleEntity.setContent(
         "This course is designed for beginners who want to gain a basic understanding of [subject]. Whether you're interested in [subject] for personal or professional reasons, this course will provide you with a solid foundation to build upon. Through a combination of theoretical concepts, practical examples, and interactive activities, you'll develop a clear understanding of [subject] and its core principles.");
@@ -47,7 +47,7 @@ public class Data {
   }
 
   public static UserEntity getUser(String uid) {
-    UserEntity user = new UserEntity();
+    final var user = new UserEntity();
     user.setUserUid(uid);
     user.setFavCourses(new ArrayList<>());
     user.setEnrolledCourses(new ArrayList<>());
@@ -55,7 +55,7 @@ public class Data {
   }
 
   public static CourseEntity getCourseObject() {
-    CourseEntity course = new CourseEntity();
+    final var course = new CourseEntity();
     course.setLevel("beginner");
     course.setTitle("Subject for beginners");
     course.setShortDescription(
@@ -67,18 +67,18 @@ public class Data {
             + " Through a combination of theoretical concepts, practical examples,"
             + " and interactive activities, you'll develop a clear understanding "
             + "of [subject] and its core principles.");
-    LessonEntity lesson = new LessonEntity();
+    final var lesson = new LessonEntity();
     lesson.setTitle("1. Introduction");
     lesson.setCourse(course);
 
-    TextArticleEntity articleEntity = new TextArticleEntity();
+    final var articleEntity = new TextArticleEntity();
     articleEntity.setTitle("Definition and scope of [subject]");
     articleEntity.setContent(
         "This course is designed for beginners who want to gain a basic understanding of [subject]. Whether you're interested in [subject] for personal or professional reasons, this course will provide you with a solid foundation to build upon. Through a combination of theoretical concepts, practical examples, and interactive activities, you'll develop a clear understanding of [subject] and its core principles.");
     articleEntity.setLesson(lesson);
     lesson.setArticles(List.of(articleEntity));
 
-    LessonEntity lesson2 = new LessonEntity();
+    final var lesson2 = new LessonEntity();
     lesson2.setTitle("2. More details");
     TextArticleEntity articleEntity2 = new TextArticleEntity();
     articleEntity2.setTitle("More details about subject");

@@ -33,12 +33,12 @@ public class CourseService {
   }
 
   public List<CourseEntity> getCourses(String name) {
-    var list = this.courseRepository.findByName(name);
-    // todo  allow empty?
-    if (!list.isEmpty()) {
-      return this.courseRepository.findByName(name);
-    } else {
+    final var list = this.courseRepository.findByName(name);
+
+    if (list.isEmpty()) {
       throw new CourseNotFoundException("No course with given id found!");
+    } else {
+      return this.courseRepository.findByName(name);
     }
   }
 
