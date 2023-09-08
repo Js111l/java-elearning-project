@@ -1,0 +1,12 @@
+services: 
+  database:
+    container_name: db
+    image:
+      mysql:latest
+    environment: 
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: qwerty
+      MYSQL_ROOT_PASSWORD: qwerty
+      MYSQL_DATABASE: elearning_db
+    ports: 
+     - 3306:3306

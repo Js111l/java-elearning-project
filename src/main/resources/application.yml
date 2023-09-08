@@ -1,16 +1,11 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: create-drop
-
+      ddl-auto: create
   datasource:
-      url: jdbc:h2:mem:mydb
-      username: sa
-      password: password
-      driver-class-name: org.h2.Driver
-#  datasource:
-#    url: jdbc:mysql://localhost:36397/mysql
-#    username: root
-#    password: qwerty
-
-
+    url: jdbc:mysql://localhost:3306/elearning_db
+    username: root
+    password: qwerty
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-doc.html
